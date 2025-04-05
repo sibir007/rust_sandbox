@@ -20,10 +20,13 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:#?}", args);
     // let arg = args[1];
-    read_file_line_by_line(&args[1], &args[2]);
+    let line_count =  count_line_in_file_by_reg(&args[1], &args[2]).unwrap();
+    println!("line_count {}", line_count);
+
 }
 
-fn read_file_line_by_line(path: &str, re_str: &str) -> Result<(), Box<dyn std::error::Error>> {
+fn count_line_in_file_by_reg(path: &str, re_str: &str) -> Result<usize, Box<dyn std::error::Error>> {
+// fn count_line_in_file_by_reg(path: &str, re_str: &str) -> usize {
     let file = File::open(path)?;
     let reader = BufReader::new(file);
     println!("file exist");
@@ -42,9 +45,6 @@ fn read_file_line_by_line(path: &str, re_str: &str) -> Result<(), Box<dyn std::e
             // Err(err) => handle_error(err),
         }
     }
-
-    println!("counter value {}", counter);
-
-
-    Ok(())
+    Ok(counter)
+    
 }

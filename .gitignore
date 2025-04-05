@@ -17,3 +17,6 @@ target/
 #.idea/
 
 line_counter/test*
+md_numbering/test*
+out_*
+in_test*

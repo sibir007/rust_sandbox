@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+    "line_counter",
+    # "line_counter_tests",
+    "md_numbering",
+    # "md_numbering_tests"
+]
+
